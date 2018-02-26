@@ -8,3 +8,5 @@ test/resources
 test/userlib
 test/*.lock
 test/theme/styles/.sass-cache
+test/.svn
+test/.mendix-cache
