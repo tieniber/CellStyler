@@ -1,0 +1,10 @@
+package-lock.json
+build
+node_modules
+package-lock.json
+test/deployment
+test/javasource
+test/resources
+test/userlib
+test/*.lock
+test/theme/styles/.sass-cache

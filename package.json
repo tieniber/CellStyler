@@ -1,0 +1,73 @@
+{
+  "name": "mendix-widget-webpack",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sample widget in ES6 + Webpack",
+  "scripts": {
+    "webpack": "./node_modules/.bin/webpack",
+    "dev": "cross-env WEBPACK_ENV=dev gulp",
+    "dev-prod": "cross-env WEBPACK_ENV=production gulp",
+    "build": "npm run build-prod",
+    "build-prod": "cross-env WEBPACK_ENV=production gulp build",
+    "build-dev": "cross-env WEBPACK_ENV=dev gulp build",
+    "clean": "gulp clean"
+  },
+  "widget": {
+    "package": "CellStyler",
+    "filesFolder": "widget",
+    "libraries": false,
+    "core": false,
+    "path": "./test/"
+  },
+  "keywords": [
+    "widget",
+    "webpack",
+    "mendix",
+    "es2015",
+    "es6"
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-1": "^6.24.1",
+    "babili-webpack-plugin": "^0.1.2",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "del": "^3.0.0",
+    "eslint": "^4.7.1",
+    "eslint-config-recommended": "^1.5.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "fs-extra": "^4.0.2",
+    "gulp": "^3.9.1",
+    "gulp-copy": "^1.0.1",
+    "gulp-help": "^1.6.1",
+    "gulp-sequence": "^0.4.6",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "img-loader": "^2.0.0",
+    "loadcss": "^0.0.2",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.6.0",
+    "webpack-archive-plugin": "^3.0.0",
+    "webpack-strip-block": "^0.2.0",
+    "xml-webpack-plugin": "^0.0.2"
+  },
+  "dependencies": {
+    "widget-base-helpers": "latest"
+  }
+}

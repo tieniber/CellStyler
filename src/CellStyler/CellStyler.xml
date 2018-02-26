@@ -1,0 +1,36 @@
+<widget id="CellStyler.widget.CellStyler" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>Cell Styler</name>
+    <description>Dummy widget</description>
+    <icon/>
+    <properties>
+        <property key="gridName" type="string" required="false" defaultValue="">
+            <caption>Grid name</caption>
+            <category>Behavior</category>
+            <description>Name of the data grid widget.</description>
+        </property>
+        <property key="rules" type="object" isList="true">
+            <caption>Rules</caption>
+            <category>Behavior</category>
+            <description>Rules for styling the grid.</description>
+            <properties>
+                <property key="columnName" type="string" required="false" defaultValue="">
+                    <caption>Column name</caption>
+                    <category>Behavior</category>
+                    <description>(Optional) Name of the data grid column that will get a class. If blank, style will be applied to the row.</description>
+                </property>
+                <property key="className" type="string" required="true" defaultValue="">
+                    <caption>Class to apply</caption>
+                    <category>Behavior</category>
+                    <description>The class to apply if the JS rule evaluates to true.</description>
+                </property>                    
+                <property key="js" type="string"  multiline="true" required="true" defaultValue="">
+                    <caption>Rule JavaScript</caption>
+                    <category>Behavior</category>
+                    <description>JavaScript that returns true when you want the class applied. You have 2 objects available: rowObj and contextObj.
+                    (ex: Check to see if an attribute of the row matches one from the grid: 'return rowObj.get("attributeName") === contextObject.get("attributeName");' )
+                    </description>
+                </property>                
+            </properties>
+        </property>        
+    </properties>
+</widget>
