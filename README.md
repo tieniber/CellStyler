@@ -37,7 +37,7 @@ oneYrAgo.setYear(now.getFullYear() - 1);
 return rowObj.get("DateOfBirth") < oneYrAgo;
 ```
 
-### Flag where the a row's associated object _Store_ has an attribute _Name_ that contains "Emporium"
+### Flag where a row's associated object _Store_ has an attribute _Name_ that contains "Emporium"
 
 ```javascript
 var store = rowObj.getChildren("MyFirstModule.Pet_Store")[0];
