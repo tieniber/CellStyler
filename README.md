@@ -1,4 +1,4 @@
-# CellStyler
+# Cell Styler
 A Mendix widget for styling cells or rows a data grid. You can achieve highlighting on rows or columns of a datagrid like this:
 
 ![Screenshot 1](/assets/screenshot1.png)
