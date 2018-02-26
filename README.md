@@ -16,19 +16,19 @@ The cell styler widget requires a little bit of JavaScript knowledge to configur
 
 > Note: you must include the attributes you'll be comparing in your grid. You can do this and avoid displaying them by setting their column's width to 0% from the data grid properties window
 
-###Flag where the row's attribute _Name_ is "Scooter"
+### Flag where the row's attribute _Name_ is "Scooter"
  
 ```javascript
 return rowObj.get("Name") === "Scooter";
 ```
 
-###Flag where the row's attribute _Name_ matches the context entity's attribute _Name_
+### Flag where the row's attribute _Name_ matches the context entity's attribute _Name_
 
 ```javascript
 return rowObj.get("Name") === contextObj.get("Name");
 ```
 
-###Flag where the row's attribute _DateOfBirth_ is over 1 year from the current date
+### Flag where the row's attribute _DateOfBirth_ is over 1 year from the current date
 
 ```javascript
 var now = new Date();
@@ -37,7 +37,7 @@ oneYrAgo.setYear(now.getFullYear() - 1);
 return rowObj.get("DateOfBirth") < oneYrAgo;
 ```
 
-###Flag where the a row's associated object _Store_ has an attribute _Name_ that contains "Emporium"
+### Flag where the a row's associated object _Store_ has an attribute _Name_ that contains "Emporium"
 
 ```javascript
 var store = rowObj.getChildren("MyFirstModule.Pet_Store")[0];
