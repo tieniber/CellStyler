@@ -41,9 +41,11 @@ export default defineWidget('CellStyler', false, {
             const rowNode = this._grid._gridRowNodes[ rowId ];
 
             for (rule of this.rules) {
+                const nodeToApply = rule.columnName ? query(".mx-name-" + rule.columnName, rowNode)[ 0 ] : rowNode;
                 if (this._evalJS(rule.js, rowObj)) {
-                    const nodeToApply = rule.columnName ? query(".mx-name-" + rule.columnName, rowNode)[ 0 ] : rowNode;
                     domClass.add(nodeToApply, rule.className);
+                } else {
+                    domClass.remove(nodeToApply, rule.className);
                 }
             }
         }
