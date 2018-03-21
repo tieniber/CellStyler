@@ -1,7 +1,7 @@
 {
   "name": "mendix-widget-webpack",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sample widget in ES6 + Webpack",
   "scripts": {
     "webpack": "./node_modules/.bin/webpack",
