@@ -3,11 +3,16 @@
     <description>Dummy widget</description>
     <icon/>
     <properties>
-        <property key="gridName" type="string" required="false" defaultValue="">
+        <property key="gridName" type="string" required="true" defaultValue="">
             <caption>Grid name</caption>
             <category>Behavior</category>
             <description>Name of the data grid widget.</description>
         </property>
+		<property key="gridEntity" type="entity" required="true">
+		    <caption>Grid Entity</caption>
+			<category>Behavior</category>
+	 		<description>The type of objects in the grid.</description>
+		</property>        
         <property key="rules" type="object" isList="true">
             <caption>Rules</caption>
             <category>Behavior</category>
@@ -22,14 +27,20 @@
                     <caption>Class to apply</caption>
                     <category>Behavior</category>
                     <description>The class to apply if the JS rule evaluates to true.</description>
-                </property>                    
-                <property key="js" type="string"  multiline="true" required="true" defaultValue="">
+                </property>
+                <property key="ruleNanoflow" type="nanoflow" entityProperty="../gridEntity" required="false">
+                    <caption>Nanoflow</caption>
+                    <category>Behavior</category>
+                    <description>(Optional) A nanoflow that returns a boolean. If you don't use a nanoflow, you must define custom JavaScript instead.</description> 
+                    <returnType type="Boolean" />
+                </property>                                          
+                <property key="js" type="string"  multiline="true" required="false" defaultValue="">
                     <caption>Rule JavaScript</caption>
                     <category>Behavior</category>
-                    <description>JavaScript that returns true when you want the class applied. You have 2 objects available: rowObj and contextObj.
+                    <description>(Optional) This will be overridden if you select a nanoflow. JavaScript that returns true when you want the class applied. You have 2 objects available: rowObj and contextObj.
                     (ex: Check to see if an attribute of the row matches one from the grid: 'return rowObj.get("attributeName") === contextObject.get("attributeName");' )
                     </description>
-                </property>                
+                </property>                 
             </properties>
         </property>        
     </properties>

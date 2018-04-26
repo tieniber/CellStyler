@@ -2,13 +2,14 @@ import {
     defineWidget,
     log,
     runCallback,
-    findWidgetByName,
+    findElement,
 } from 'widget-base-helpers';
 
 import domClass from 'dojo/dom-class';
 import query from 'dojo/query';
 import aspect from 'dojo/aspect';
 import construct from 'dojo/dom-construct';
+import registry from 'dijit/registry';
 
 export default defineWidget('CellStyler', false, {
 
@@ -29,7 +30,8 @@ export default defineWidget('CellStyler', false, {
             this._contextObj = obj;
         }
 
-        this._grid = findWidgetByName(this.gridName);
+        this._gridNode = findElement(".mx-name-" + this.gridName, this.domNode.parentNode);
+        this._grid = registry.byNode(this._gridNode);
         aspect.after(this._grid, "refreshGrid", this._evalRules.bind(this));
 
         if(callback) {callback();}
@@ -39,17 +41,36 @@ export default defineWidget('CellStyler', false, {
         for (rowObj of this._grid._dataSource._pageObjs) {
             const rowId = this._grid.getRowForMxObject(rowObj);
             const rowNode = this._grid._gridRowNodes[ rowId ];
+            const handleResults = this._handleResults;
+            const callbackFunc = function(nodeToApply, className) {
+                return function(result) {
+                    handleResults(result, nodeToApply, className);
+                };
+            };
 
             for (rule of this.rules) {
                 const nodeToApply = rule.columnName ? query(".mx-name-" + rule.columnName, rowNode)[ 0 ] : rowNode;
-                if (this._evalJS(rule.js, rowObj)) {
-                    domClass.add(nodeToApply, rule.className);
+                if (rule.ruleNanoflow && rule.ruleNanoflow.nanoflow) {
+                    this._evalNanoFlow(rule.ruleNanoflow, rowObj, callbackFunc(nodeToApply, rule.className));
                 } else {
-                    domClass.remove(nodeToApply, rule.className);
+                    const result = this._evalJS(rule.js, rowObj);
+                    this._handleResults(result, nodeToApply, rule.className);
                 }
             }
         }
     },
+    _evalNanoFlow(nanoflow, obj, callback) {
+        const context = new mendix.lib.MxContext();
+        context.setTrackObject(obj);
+        window.mx.data.callNanoflow({
+            nanoflow: nanoflow,
+            context: context,
+            origin: this.mxform,
+            callback: callback,
+            error: function(){console.error("Unable to execute rule nanoflow");},
+        });
+    },
+
     _evalJS(js, rowObj) {
         const contextObj = this._contextObj;
         try {
@@ -60,6 +81,13 @@ export default defineWidget('CellStyler', false, {
             construct.place("<div class=\"alert alert-danger\">Error while evaluating javascript input: " +
                 e + "</div>", this.domNode, "only");
             return false;
+        }
+    },
+    _handleResults(result, nodeToApply, className) {
+        if (result) {
+            domClass.add(nodeToApply, className);
+        } else {
+            domClass.remove(nodeToApply, className);
         }
     },
 });
