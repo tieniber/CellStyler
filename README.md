@@ -16,11 +16,23 @@ The cell styler widget requires a little bit of JavaScript knowledge to configur
 
 > Note: you must include the attributes you'll be comparing in your grid. You can do this and avoid displaying them by setting their column's width to 0% from the data grid properties window
 
+> Note2: The name you want is the name of the attribute on the entity, and not the grid column or caption names.  Use this name:
+> ![Attribute Entity Name](https://i.imgur.com/ogIelRl.png "Attribute Entity Name")
+
+
 ### Flag where the row's attribute _Name_ is "Scooter"
  
 ```javascript
 return rowObj.get("Name") === "Scooter";
 ```
+
+### Flag where the row's boolean attribute _IsReallyFast_ is true
+ 
+```javascript
+return rowObj.get("IsReallyFast") === true;
+```
+
+Boolean attributes of true/false may display as "Yes"/"No" in a grid.  In your javascript code, you should match the true/false, not the "Yes"/"No".
 
 ### Flag where the row's attribute _Name_ matches the context entity's attribute _Name_
 
