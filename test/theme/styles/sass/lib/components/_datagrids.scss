@@ -255,3 +255,12 @@
         }
     }
 }
+
+.mx-datagrid-body {
+    .dollar-amount>div::before {
+        content: "$";
+    }
+    .empty-cell>div::before {
+        content: "-";
+    }
+}

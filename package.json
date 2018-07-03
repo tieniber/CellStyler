@@ -1,8 +1,8 @@
 {
-  "name": "mendix-widget-webpack",
+  "name": "grid-cell-styler",
   "private": true,
-  "version": "1.0.1",
-  "description": "Sample widget in ES6 + Webpack",
+  "version": "1.0.2",
+  "description": "Grid Cell Styler",
   "scripts": {
     "webpack": "./node_modules/.bin/webpack",
     "dev": "cross-env WEBPACK_ENV=dev gulp",

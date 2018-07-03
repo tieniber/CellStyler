@@ -1365,6 +1365,15 @@ select.form-control {
   font-size: 12px;
 }
 
+/* line 260, ../../sass/lib/components/_datagrids.scss */
+.mx-datagrid-body .dollar-amount > div::before {
+  content: "$";
+}
+/* line 263, ../../sass/lib/components/_datagrids.scss */
+.mx-datagrid-body .empty-cell > div::before {
+  content: "-";
+}
+
 /* ==========================================================================
    Dataview
 
