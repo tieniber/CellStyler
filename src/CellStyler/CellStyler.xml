@@ -8,7 +8,7 @@
             <category>Behavior</category>
             <description>Name of the data grid widget.</description>
         </property>
-		<property key="gridEntity" type="entity" required="true">
+		<property key="gridEntity" type="entity" required="true" allowNonPersistableEntities="true">
 		    <caption>Grid Entity</caption>
 			<category>Behavior</category>
 	 		<description>The type of objects in the grid.</description>
