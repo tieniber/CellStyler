@@ -84,6 +84,10 @@ export default defineWidget('CellStyler', false, {
         }
     },
     _handleResults(result, nodeToApply, className) {
+        if (!nodeToApply) {
+            return;
+        }
+
         if (result) {
             domClass.add(nodeToApply, className);
         } else {
