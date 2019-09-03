@@ -1,7 +1,7 @@
 {
   "name": "grid-cell-styler",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Grid Cell Styler",
   "scripts": {
     "webpack": "./node_modules/.bin/webpack",

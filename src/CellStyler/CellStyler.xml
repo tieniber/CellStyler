@@ -1,6 +1,6 @@
 <widget id="CellStyler.widget.CellStyler" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
     <name>Cell Styler</name>
-    <description>Dummy widget</description>
+    <description>Grid cell styler allows you to conditionally style rows and cells of a data grid.</description>
     <icon/>
     <properties>
         <property key="gridName" type="string" required="true" defaultValue="">
