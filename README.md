@@ -4,7 +4,7 @@ A Mendix widget for styling cells or rows a data grid. You can achieve highlight
 ![Screenshot 1](/assets/screenshot1.png)
 
 ## Demo
-See a demo of the cell styler in action [here](https://cellstyler.mxapps.io).
+See a demo of the cell styler in action [here](https://cellstyler-sandbox.mxapps.io).
 
 ## Configuration
 The cell styler widget requires a little bit of JavaScript knowledge to configure. Here's how it is done:
