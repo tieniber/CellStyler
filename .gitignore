@@ -7,6 +7,9 @@ test/javasource
 test/resources
 test/userlib
 test/*.lock
+test/test.launch
 test/theme/styles/.sass-cache
 test/.svn
 test/.mendix-cache
+*.DS_Store
+
